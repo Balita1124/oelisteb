@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="container xd-container">
+    <h2>Clients</h2>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Code</th>
+          <th>nom</th>
+          <th>Siret</th>
+          <th>Siren</th>
+          <th>Adresse</th>
+          <th>Chiffre d'affaire</th>
+          <th>telephone</th>
+          <th>email</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let client of clients">
+          <td>{{ client.code }}</td>
+          <td class="ownerFullName"><a routerLink="/clients/{{client.id}}"
+                                       routerLinkActive="active">{{ client.nom }}</a></td>
+          <td>{{ client.siret }}</td>
+          <td>{{ client.siren }}</td>
+          <td>{{ client.rue }} {{ client.cp }} {{ client.ville }}</td>
+          <td>{{ client.ca }}</td>
+          <td>{{ client.telephone }}</td>
+          <td>{{ client.email }}</td>
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <button class="btn btn-default" (click)="addClient()">Add Client</button>
+      </div>
+    </div>
+  </div>
+</div>
